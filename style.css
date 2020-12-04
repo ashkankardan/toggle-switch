@@ -26,6 +26,7 @@
   left: 15px;
   z-index: -1;
   pointer-event: none;
+  transition: all 1s ease;
 }
 
 .toggle-button::before,
@@ -39,6 +40,7 @@
   top: 0;
   z-index: -1;
   border-radius: 50%;
+  transition: all 1s ease;
 }
 
 .toggle-button::before {
@@ -62,12 +64,29 @@
   left: -10px;
   transform: translateY(-50%);
   transition: all 1s ease;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
+
+.toggle-button .icon .stars {
+  background: url("./img/stars.png");
+  background-size: 100% 100%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 1s ease all;
 }
 
 .toggle-wrapper input[type="checkbox"]:checked + .toggle-button .icon {
-  background: url("./img/bauble-active.png");
   background-size: 100% 100%;
   left: 28px;
   transform: translateY(-50%);
+}
+
+.toggle-wrapper input[type="checkbox"]:checked + .toggle-button .icon .stars {
+  background-position: top 0 left 18px;
+  filter: invert(95%);
 }
