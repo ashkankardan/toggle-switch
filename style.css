@@ -1,0 +1,73 @@
+.toggle-wrapper {
+  width: 70px;
+  height: 35px;
+  box-shadow: inset 0 4px 10px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  border-radius: 20px;
+  display: block;
+  cursor: pointer;
+}
+
+.toggle-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-wrapper input[type="checkbox"]:checked + .toggle-button,
+.toggle-wrapper input[type="checkbox"]:checked + .toggle-button::before,
+.toggle-wrapper input[type="checkbox"]:checked + .toggle-button::after {
+  background: #2abb9b;
+}
+
+.toggle-button {
+  background: #f03434;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  left: 15px;
+  z-index: -1;
+  pointer-event: none;
+}
+
+.toggle-button::before,
+.toggle-button::after {
+  content: "";
+  display: block;
+  background: #f03434;
+  width: 30px;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.toggle-button::before {
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.toggle-button::after {
+  right: 0;
+  transform: translateX(50%);
+}
+
+.toggle-button .icon {
+  background: url("./img/bauble.png");
+  background-size: 100% 100%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
+  transition: all 1s ease;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+}
+
+.toggle-wrapper input[type="checkbox"]:checked + .toggle-button .icon {
+  background: url("./img/bauble-active.png");
+  background-size: 100% 100%;
+  left: 28px;
+  transform: translateY(-50%);
+}
